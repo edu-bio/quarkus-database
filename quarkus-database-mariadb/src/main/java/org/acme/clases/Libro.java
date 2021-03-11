@@ -2,10 +2,15 @@ package org.acme.clases;
 
 
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
+
+/*Lo comentado en la clase es porque se puede realizar usando EntityManager o Panache,
+ * descomentando y comentando los codigos alternativos se hace de una manera u otra.
+ * El ID y el EQUALS-HASHCODE es algo que Panache ya implementa por defecto y no es necesario.*/
 
 @Table(name="Libro")
 @Entity
