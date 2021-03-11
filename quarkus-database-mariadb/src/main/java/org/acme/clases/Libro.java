@@ -26,6 +26,8 @@ public class Libro extends PanacheEntity{
 private int isbn;
 @Column
 private String titulo;
+//@Column
+//private String sinopsis;
 
 public Libro() {
 	

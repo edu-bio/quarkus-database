@@ -14,9 +14,10 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.ResponseBuilder;
 
 import org.acme.clases.Libro;
+
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 
 
@@ -106,11 +107,16 @@ public class LibroResource {
 	
 	//actualiza un libro en la base de datos
 	@PUT
+	@Path("/{id}")
 	@Transactional
 	@Consumes(MediaType.APPLICATION_JSON)
-	public ResponseBuilder actualizarLibro(Libro libro){
-		libro.flush();
-		return Response.ok(libro);
+	public Libro actualizarLibro(@PathParam("id") Long id, Libro newLibro){
+		Libro libro = Libro.findById(id);
+		libro.setTitulo(newLibro.getTitulo());
+		libro.setIsbn(newLibro.getIsbn());
+		return libro;
+
+	
 	}
 	
 	
