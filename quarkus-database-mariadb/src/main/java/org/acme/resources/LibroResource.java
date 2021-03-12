@@ -110,13 +110,14 @@ public class LibroResource {
 	@Path("/{id}")
 	@Transactional
 	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Libro actualizarLibro(@PathParam("id") Long id, Libro newLibro){
+//	public void actualizarLibro(@PathParam("id") Long id, Libro newLibro){
 		Libro libro = Libro.findById(id);
 		libro.setTitulo(newLibro.getTitulo());
 		libro.setIsbn(newLibro.getIsbn());
+		libro.persist();
 		return libro;
-
-	
 	}
 	
 	
