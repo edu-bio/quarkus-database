@@ -17,8 +17,6 @@ import javax.ws.rs.core.Response;
 
 import org.acme.clases.Libro;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-
 
 
 
